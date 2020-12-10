@@ -1,0 +1,44 @@
+var readlineSync = require("readline-sync");
+
+// input-processing -output
+var username = readlineSync.question ("What is your name?")
+console.log("Welcome " +username +" to Do you know Prasurjya?")
+var score = 0
+// play function
+function play(question,answer){
+  var useranswer = readlineSync.question(question)
+
+  // Branching
+if( useranswer === answer)
+{console.log("You are Right")
+score = score+1
+console.log("Current Score " +score)
+}
+else{
+  console.log("You are wrong")
+  console.log("Current Score " +score)
+}
+}
+
+//array of objects
+var questionone ={
+  question:"Where do I study?",
+  answer: "AEC"
+}
+var questiontwo = {
+  question:"Where do I live?",
+  answer: "Guwahati"
+}
+var questionthree = {
+  question: "Where an i from?",
+  answer: "Gossaigaon"
+}
+var questions= [ questionone,questiontwo,questionthree]
+
+// loop
+for (var i=0;i <questions.length;i++){
+  currentquestion = questions[i]
+  play(currentquestion.question,currentquestion.answer)
+}
+
+console.log("Your score is "+score)
